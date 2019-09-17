@@ -14,27 +14,10 @@ commands:
   health_check_node:
     description: Health Check a Node
     parameters:
-      port:
-        type: integer
-        default: 3013
     steps:
       - run:
           name: Health check APIs
-          command: |
-            EXTERNAL_ADDR=localhost:<< parameters.port >> \
-            INTERNAL_ADDR=localhost:<< parameters.port >> \
-            WEBSOCKET_ADDR=localhost:<< parameters.port >> \
-            ./test/healthcheck.sh
-
-  integration_tests:
-    description: Integration Tests
-    steps:
-      - health_check_node:
-          port: 3001
-      - health_check_node:
-          port: 3002
-      - health_check_node:
-          port: 3003
+          command: ./test/healthcheck.sh
 
 jobs:
   integration_tests:

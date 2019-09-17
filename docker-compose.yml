@@ -15,7 +15,10 @@ services:
       - ${PWD}/node/config/node1_mean15.yaml:/home/aeternity/aeternity.yaml
       - ${PWD}/node/keys/node1:/home/aeternity/node/keys
       - ae_singlenode_db:/home/aeternity/node/data/mnesia
-    expose: ["3013", "3014"]
+    ports:
+     - "3013:3013"
+     - "3113:3113"  # internal API
+     - "3014:3014"
 
 volumes:
   ae_singlenode_db:

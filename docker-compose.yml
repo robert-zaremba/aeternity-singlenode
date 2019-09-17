@@ -4,7 +4,7 @@
 version: '3'
 services:
   node:
-    container_name: aeternity_singlenode
+    container_name: aeternity_singlenode_dev
     image: aeternity/aeternity:${IMAGE_TAG:-master}
     hostname: ae_singlenode
     environment:
